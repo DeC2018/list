@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 typedef int Data;
 
@@ -8,11 +9,21 @@ struct Node {
     Node * next;
 };
 
+void print(Node * list);
+void push(Node ** plist, Data d);
+
 void print(Node * list) {
     for (Node * p = list; p != NULL; p = p->next) {
         printf("%d ", p->data);
     }
     printf("\n");
+}
+
+void push(Node ** plist, Data d) {
+    Node * p = malloc(sizeof(Node));
+    p->data = d;
+    p->next = *plist;
+    *plist = p;
 }
 
 int main() {
@@ -24,6 +35,18 @@ int main() {
     c.next = NULL;
 
     print(list);
+    push(&list, 10);
+
+    Node * p = malloc(sizeof(Node));
+    p->data = 10;
+    p->next = list;
+    list = p;
+
+    print(list);
     
     return 0;
 }
+
+
+
+
