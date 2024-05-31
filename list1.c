@@ -1,3 +1,5 @@
+//stack based on singly linked list
+
 #include <stdio.h>
 #include <stdlib.h>
 
