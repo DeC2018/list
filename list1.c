@@ -8,6 +8,13 @@ struct Node {
     Node * next;
 };
 
+void print(Node * list) {
+    for (Node * p = list; p != NULL; p = p->next) {
+        printf("%d ", p->data);
+    }
+    printf("\n");
+}
+
 int main() {
     Node * list = NULL;
     Node a = {3}, b = {17}, c = {21}, t = {10};
@@ -16,14 +23,7 @@ int main() {
     b.next = &c;
     c.next = NULL;
 
-    Node * p;
-    p = list;
-    printf("%d ", p->data);
-    p = p->next;
-    printf("%d ", p->data);
-    p = p->next;
-    printf("%d ", p->data);
-    printf("\n");
-
+    print(list);
+    
     return 0;
 }
